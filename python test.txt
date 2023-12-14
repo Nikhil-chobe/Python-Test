@@ -1,0 +1,581 @@
+PYTHON TEST 
+
+# Q.1 Difference between python version 2 and version 3 ? how do you check current version of python ?
+ANS= difference between version 2 and version 3
+
+version 2 = 1)Uses the print statement without parentheses.ex=print "Hello, World!"
+2)Performs integer division by default.
+result = 5 / 2  # results in 2
+3)Strings are ASCII by default, and Unicode requires a u prefix.
+string = u"Hello, World!"
+4)Has both range and xrange for creating ranges.
+for i in xrange(5):
+    print(i)
+5)Uses raw_input() for user input.
+ex=name = raw_input("Enter your name: ")
+
+
+Python 3: 
+
+Python 3: 
+Python 3:1) Requires parentheses with the print function.ex print("Hello, World!")
+2)Performs float division by default.ex=result = 5 / 2  # results in 2.5
+3)Strings are Unicode by default.ex= string = "Hello, World!"
+4)Only has range, and it behaves like xrange from Python 2.
+ex=for i in range(5):
+    print(i)
+5)Uses input() for user input.
+ex=name = input("Enter your name: ")
+
+
+for checking the  python version  we use = 'python__version'
+################################################################################################################################
+
+2)# Q.2 Difference between local variable and global variable ?exaples?
+ANS:
+Local Variable: 
+Scope:
+1)A variable declared inside a function or block of code has local scope. It is only accessible within that specific
+ function or block.
+Access:
+2) Can only be accessed within the function or block in which it is defined. It is not visible to other functions or 
+the main program.
+Global Variable: 
+Lifetime:
+3)Exists only as long as the function or block in which it is declared is executing. It is created when the function 
+is called and destroyed when the function exits.
+
+Global Variable: 
+Scope:
+1)A variable declared outside of any function or block has global scope. It is accessible throughout the entire program.
+Access:
+2)Can be accessed from any part of the program, including functions. However, if a function declares a local variable with
+ the same name, 
+it will take precedence within that function's scope.
+Lifetime:
+3)Exists throughout the entire runtime of the program. It is created when the program starts and 
+is destroyed when the program terminates.
+
+example:=# Global variable
+global_var = 10
+
+def example_function():
+    # Local variable
+    local_var = 5
+    print(f"Local variable inside function: {local_var}")
+
+# Accessing global variable
+print(f"Global variable outside function: {global_var}")
+
+# Trying to access local variable outside the function will result in an error
+# Uncommenting the line below will result in an error
+# print(f"Trying to access local variable outside function: {local_var}")
+
+example_function()
+#################################################################################################################################################
+
+3)# Q.3 Waht are data types in python ?
+ANS=1)primitive data types
+
+1)int: Integer type represents whole numbers without any decimal points.
+ex= int 15
+2)float: Float type represents floating-point numbers, which include decimal points.
+ex= float 1.5
+3)Boolean: type represents either True or False.
+ex=is_true = True
+is_false = False
+4)string: String type represents a sequence of characters and is used for text.
+str="Nik"
+non-primitive
+a)setb)listc)map
+#########################################################################################################################################
+
+4)# Q.4 What is difference between mutable and immutable data types? How many data types are mutable or not ? please provide reason also
+ with example ? 
+
+Mutable Data Types:
+
+Definition: Objects of mutable data types can be modified or altered after creation.
+
+Data types that are mutable are:list, set, and dict are mutable data types.
+ex=list               set                    dict
+a=[5,6,8,10]            b={2,3,2,3}           a={'name':'nik',
+a[1]=2                 b.add(9)                  'grade':'A'}
+a                        b                      a['name']='pik'
+op=[5, 2, 8, 10]        op={2,3,2,3,9}           a
+                                                op={'name': 'pik', 'grade': 'A'}
+
+
+Immutable Data Types:
+
+Definition: Objects of immutable data types cannot be modified or altered after creation. Any operation that appears to modify 
+the data type actually creates a new object.
+Examples: int, float, str, tuple, and frozenset are immutable data types.
+ex= tuple          str
+a=(5,6,8,9)        name="nik"
+a[2]=(15)          op:we can not add its seems error 
+a
+op:its error
+################################################################################################################################################                                             
+
+5) Why we use loops ? Please provide 3 examples of for loop and 3 exaples of while loops? 
+Why we use loops:
+Loops are used in programming to repeat a specific block of code multiple times, allowing for efficient and 
+concise execution of repetitive tasks. They help automate processes and handle tasks that involve iterating over a sequence of elements or
+executing code until a certain condition is met.
+
+example
+for loop 
+1) for i in range(5):      list                                     tuple
+print(i)                   2) a=['siya','piya','jiya','riya']       3)b=('mi','pi',6,8,'oo')
+op:=0                          for i in a:                            for i in range(len(a))
+1                               ptrint(i,end=',')                      print(a[i])
+2                           op=siya,piya,jiya,riya                  op=mi
+3                                                                      pi 
+4                                                                       6
+5                                                                        8
+
+
+while loop
+
+1)i=1            2) a=int(input("enter no"))
+n=4                 sum=0  
+while(i<=n):        while(a>0):
+   print(i)         sum=sum+a%10
+   i=i+1            a=a//10    
+op=1                    print(sum)
+2                    op=enter no=55
+3                       =10 
+4
+###############################################################################################################################################
+
+ Q.6 Why we use functions ? Difference between lambda , filter ,reduce , map function with example ?
+ANS=
+1)Functions allow you to break down a program into smaller, manageable pieces, making the code more modular and easier to understand.
+2)Once a function is defined, it can be reused multiple times, reducing code duplication.
+3)Functions improve code readability by encapsulating complex operations behind a simple interface.
+4)Functions provide a level of abstraction, allowing you to focus on the functionality of a block of code without worrying about
+ its internal details.
+
+Difference between lambda , filter ,reduce , map function with example ?
+
+Lambda Function:
+
+1)A lambda function is an anonymous function defined using the lambda keyword.
+
+2)It is often used for short, simple operations.
+
+ex=x=lambda a:a+5
+print("total values",x(5))
+
+op=total values 10
+
+filter Function
+1)The filter function filters elements of an iterable based on a given function (usually a lambda function).
+
+2)It returns an iterator containing the elements for which the function returns True.
+
+example=numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers))  
+ Output: [2, 4, 6, 8]
+
+reduce function:
+1)The reduce function applies a binary function (with two arguments) cumulatively to the items of an iterable.
+
+2)It successively applies the function to the elements, reducing them to a single accumulated result.
+
+example
+from functools import reduce
+def myfunc(a,b):
+    return a+b
+val=[1,2,3,4]
+add=reduce(myfunc,val)
+print("addition",add)
+op=10
+
+map function
+
+1)The map function applies a given function to all items in an input iterable (e.g., a list) and returns an iterator of the results.
+
+example=numbers = [1, 2, 3, 4, 5]
+
+squared_numbers = map(lambda x: x**2, numbers)
+print(list(squared_numbers)) 
+op= [1, 4, 9, 16, 25]
+############################################################################################################################################
+# Q.7  Difference between list and tuple ? please provide index() , insert() , append() , reverse() examples in list ?
+
+List:
+
+1) Lists are mutable, meaning you can modify their elements after the list is created.
+2)we can  Defined LIST  using square brackets [].
+ 3) list is Supports operations like append(), insert(), pop(), remove(), and more.
+
+Tuple
+1)Tuples are immutable, meaning their elements cannot be modified after the tuple is created.
+2)we can Defined TUPLE  using parentheses ().
+3) Supports a limited set of operations compared to lists. Once a tuple is created, you cannot add, remove, or modify elements.
+
+example
+1)index()
+a=['lik','mik','rik']
+c=a.index('mik')
+c
+op=1
+2)insert()
+a=['lik','mik','rik']
+a.insert(3,5)
+a
+op=['lik','mik','rik',5]
+3)append()
+a=['lik','mik','rik',5]
+a.append(880)
+a
+op=['lik', 'mik', 'rik', 5, 880]
+​4)pop()
+a=['lik', 'mik', 'rik', 5, 880]
+c=a.pop()
+a
+op=['lik', 'mik', 'rik', 5]
+5)remove()
+a=['lik', 'mik', 'rik', 5, 880]
+a.remove('rik')
+a
+op=['lik', 'mik', 5, 880]
+#################################################################################################################################
+
+# Q.8 What are decorators ? Please provide examples ?
+
+
+-In Python, decorators are a powerful and flexible way to modify or extend the behavior of functions or methods without changing their actual code
+-Decorators are often used for tasks such as logging, access control, memoization, and more. They allow you to wrap a function with
+ additional functionality.
+- Decorators use the @decorator syntax before a function definition.
+
+example
+
+# Decorator function
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+# Applying the decorator using the @ syntax
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+# Calling the decorated function
+say_hello()
+###############################################################################################################################################
+
+# Q.9 Difference between dictionary and set ? Please provide keys() , values() , items() example of dictionary and union() , 
+intersection() in sets ? Is frozenset is mutable or not ? 
+
+Dictionary:
+1) A dictionary is an unordered collection of key-value pairs.
+2)we can declore a dictionry= {key1: value1, key2: value2, ...}
+3) Dictionaries are mutable, meaning you can change their content by adding, removing, or updating key-value pairs.
+4)Keys are  Unique and immutable.
+5)Values it Can be of any data type and can be duplicated.
+
+
+Set:
+1) A set is an unordered collection of unique elements.
+2)we can declore a SET= {element1, element2, ...}
+3) Sets are mutable, but there's also an immutable version called frozenset.
+4)Elements are in sets Unique and immutable.
+
+Frozenset: Frozenset is an immutable version of a set.
+
+example of Dictionary:: keys() and values()
+
+a={key:values
+   'year':2024,
+    'model':'cepta',
+     'brand':'import' }
+
+example of Set:
+
+union()                           intersection()
+a={'mobo','kubo','jino'}         a={'mobo','kubo','jino'}
+b={'nip','kubo'}                 b={'nip','kubo'}
+c=a.union(b)                      c=a.intersection(b)
+c                                 c
+op={'mobo','kubo','jino',nip}    op={'kubo'}
+
+################################################################################################################################
+
+# Q.10 What are list comprehension ? Please provide examples ?
+List comprehension is a concise and readable way to create lists in Python. It provides a more compact syntax for generating lists compared
+to traditional loops. 
+The basic structure of a list comprehension is:
+[expression for item in iterable if condition]
+expression: The operation or value to be included in the new list.
+item: The variable representing an element in the iterable.
+iterable: The collection of elements you want to iterate over.
+condition (optional): A filtering condition that determines whether the item should be included in the new list.
+
+example:
+1)Squares of Numbers
+# Using a for loop
+squares = []
+for num in range(1, 6):
+    squares.append(num ** 2)
+
+# Using list comprehension
+squares = [num ** 2 for num in range(1, 6)]
+
+print(squares)  
+Output: [1, 4, 9, 16, 25]
+
+2)
+Even Numbers
+# Using a for loop
+evens = []
+for num in range(1, 11):
+    if num % 2 == 0:
+        evens.append(num)
+
+# Using list comprehension
+evens = [num for num in range(1, 11) if num % 2 == 0]
+
+print(evens)  
+Output: [2, 4, 6, 8, 10]
+##########################################################################################################################################
+
+# Q.11 How do you create an array from a user defined list ?
+a=[]
+size=int(input('enter no'))
+for i in range (size):
+    val=input('enter no')
+    de=a.append(val)
+print(a)
+c=np.array(a)
+c    
+op=enter no=3
+enter value=44,55,66
+array(['44', '55', '66'])
+##############################################################################################################################
+# Q.12 Difference between hstack() and vstack()  with example?
+
+
+In NumPy, hstack() and vstack() are functions used for horizontal and vertical stacking of arrays, respectively. 
+They allow you to concatenate arrays along different axes.
+
+1)np.hstack(): Horizontal Stack
+The hstack() function is used to horizontally stack two or more arrays along the second axis (columns).
+ It takes a sequence of input arrays and concatenates them horizontally.
+
+example
+a=np.array([1,2,3,4])
+np.hstack((a))
+
+op=array([1, 2, 3, 4])
+​
+2)np.vstack(): Vertical Stack
+The vstack() function is used to vertically stack two or more arrays along the first axis (rows). 
+It concatenates the input arrays vertically.
+
+example=
+a=np.array([1,2,3,4])
+np.vstack((a))
+
+op=array([[1],
+       [2],
+       [3],
+       [4]])
+
+##################################################################################################################################
+# Q.13 What is zeros() , ones() , eye() , diag() , randint() , rand() , seed() , linspace() , unique() in NumPy ?
+ Please provide 1-1 examples of these functions ? 
+
+ANS= 1)zeros()
+Creates an array of zeros with the specified shape.
+example
+c=np.zeros((3,4))
+c
+
+op=array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+
+2)ones()
+Creates an array of ones with the specified shape.
+ex=
+c=np.ones((3,4))
+c
+op=array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+
+3)eye()
+Creates an identity matrix with the specified size.
+ex=
+a=np.eye(3,4)
+a
+op=array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.]])
+
+4)diag()
+
+Extracts the diagonal elements of an array or constructs a diagonal array.
+
+example=
+a=np.array([1,5,9,7])
+np.diag(a)
+
+op=array([[1, 0, 0, 0],
+       [0, 5, 0, 0],
+       [0, 0, 9, 0],
+       [0, 0, 0, 7]])
+​
+5)randint()
+Generates random integers in a specified range.
+example
+c=np.random.randint(1,11,3)
+c
+op=array([10,  6,  9])
+
+6)rand()
+Generates random numbers from a uniform distribution between 0 and 1.
+
+ex=
+d=np.random.rand(5)
+d
+op=array([0.45874176, 0.12094609, 0.49284724, 0.27756409, 0.55773263])
+
+7)seed()
+Seeds the random number generator to produce reproducible results.
+ex=
+a=np.random.seed(2)
+a=np.random.randn(3,4)
+a
+op=array([[-0.41675785, -0.05626683, -2.1361961 ,  1.64027081],
+       [-1.79343559, -0.84174737,  0.50288142, -1.24528809],
+       [-1.05795222, -0.90900761,  0.55145404,  2.29220801]])
+
+8)linspace() 
+
+Creates an array of evenly spaced values over a specified range.
+
+ex=
+a=np.linspace(1,2,5)
+a
+op=array([1.  , 1.25, 1.5 , 1.75, 2.  ])
+
+9)unique():
+ Finds the unique elements of an array.
+its returns 3 array
+a=unique values
+b=index value
+c=counting of frequency
+
+ex=a=np.array([10,20,30,40,50,10,20,30])
+np.unique(a,return_index=True,return_counts=True)
+
+op=(array([10, 20, 30, 40, 50]),
+ array([0, 1, 2, 3, 4], dtype=int64),
+ array([2, 2, 2, 1, 1], dtype=int64))
+
+####################################################################################################################################
+
+# Q.14 How can you reshape your array in numpy ? Please provide example also ?
+
+In NumPy, the reshape() function is used to change the shape of an array without changing its data. It returns a new array with
+ the specified shape. 
+The total number of elements in the reshaped array must be the same as the original array.
+
+example
+a=np.random.randint(1,50,12)
+a
+op=array([ 4, 39,  5, 43, 44, 40, 39, 43, 34,  4,  6, 25])
+a.shape
+op=
+(12,)
+a.reshape(2,6)
+op=array([[16, 40, 47,  9, 46, 16],
+       [42, 46,  9, 18, 23, 10]])
+a.reshape(4,3)
+op=array([[42, 47, 27],
+       [20, 33, 44],
+       [33, 27,  9],
+       [13, 11, 41]])
+#######################################################################################################################################
+
+# Q.15 what is argmin() and argmax() in numpy ? please exaplain using an example ?
+
+In NumPy, the argmin() and argmax() functions are used to find the indices of the minimum and maximum values in an array, respectively.
+
+a)np.argmin():
+it Returns the indices of the minimum value along a specified axis.
+
+example=
+a=np.array([5,6,9,8])
+np.argmin(a)
+op=0
+
+b)np.argmax():
+it Returns the indices of the maximum value along a specified axis.
+example=
+a=np.array([5,6,9,8])
+np.argmax(a)
+op=2
+########################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
