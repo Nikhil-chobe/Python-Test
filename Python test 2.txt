@@ -1,0 +1,332 @@
+PANDAS TEST
+
+Q.1 What is Pandas ?
+- Pandas is a open source Library it is use for data manipulation an data modeling.
+-It provides data structures for efficiently storing and manipulating large datasets
+ and tools for working with structured data. 
+data structures in Pandas are
+1)series 
+2)DataFrame
+####################################################################################
+Q.2 Difference between series and dataframe ? 
+
+Series:
+-Series is an one-dimenstional Data
+-we will get only values not lablesi.e column
+-we can check series using type(variable)
+-Each element in a Series is associated with a label or index.
+example=
+a=pd.Series([1,50,90,70,30])
+a
+op=
+0    1
+1    50
+2    90
+3    70
+4    30
+
+DataFrame:
+-Data frame is a multi-dimentional data.
+-we will get column name with values
+-we can check using type(variable)
+-Each column in a DataFrame is a Series.
+-Can store data of different data types.
+-Supports both row and column indexing.
+-Can be created from various data structures like dictionaries, lists, or other DataFrames.
+example=
+a={"name":['Nik','Rik','pik','Dik'],
+  "Grade":['A','B','D','C']}
+a
+df=pd.DataFrame(a)
+df
+op=	name	Grade
+0	Nik	A
+1	Rik	B
+2	pik	D
+3	Dik	C
+​##########################################################################################################################
+
+3)Difference between loc and iloc ? 
+A)loc (Label-based indexing):
+-loc is primarily label-based indexing. It is used for selection and slicing based on the labels of rows and columns.
+-The syntax for loc is df.loc[row_label, column_label].
+-It includes the endpoint in the slice.
+Syntex=df.loc[row_index,column_index]
+example=
+df.loc[2:5,['Age','City']]
+op=
+        Age	City
+2	30.0	Reyesfurt
+3	28.0	New Michael
+4	30.0	West Richard
+5	26.0	Port Maria
+
+b)iloc (Integer-based indexing):
+-iloc is primarily integer-based indexing. It is used for selection and slicing based on the integer positions of rows and columns.
+-The syntax for iloc is df.iloc[row_index, column_index].
+-It does not include the endpoint in the slice.
+syntex=df.iloc[row_range_index,column_range_index]
+example=
+df.iloc[2:5,[2,6]]
+op=
+        Area Income	Gender
+2	57877.15	Female
+3	56180.93	Female
+4	54324.73	Female
+########################################################################################################################################
+
+4)what does value_counts() ? 
+
+ANS=The value_counts() function in Pandas is used to compute a histogram of a Series' unique values. 
+It returns a Pandas Series containing counts of unique values in descending order. 
+This function is particularly useful for categorical data to understand the distribution of values.
+
+example=df.value_counts()
+
+it returns the value count of the table
+###########################################################################################################################################
+
+5)how do you handle missing values using pandas ?
+
+ANS=Handling missing values is an important step in the data cleaning and preprocessing process.
+ Pandas provides several methods for dealing with missing values.
+
+a)Dropping Missing Values:
+
+Use the dropna() method to remove rows or columns containing missing values.
+
+example=df.dropna()
+
+b)Filling Missing Values:
+
+Use the fillna() method to fill missing values with a specific value or a value computed from the data.
+example=df.fillna(0, inplace=True)
+
+c)Checking for Missing Values:
+
+Use the isnull() method to identify missing values in the DataFrame.
+
+example
+df.isnull().sum()
+#######################################################################################################################################
+6) How do you merge 2 tables using pandas ?
+In Pandas, you can merge two tables (DataFrames) using the merge() function.
+ The merge() function provides a powerful way to combine data from two DataFrames based on one or more keys.
+example=
+merged=df1.merge(df2,on=['column name'],suffixes=('_left','_right')
+
+#####################################################################################################################################
+7)How do you connect jupyter notebook to mysql ? 
+
+for connecting jupyter notebook to mysql need to follw following steps
+
+step 1=import numpy as np
+import pandas as pd
+
+step2=!pip install mysql.connector
+
+step3=import mysql.connector
+
+step4=conn=mysql.connector.connect(host='localhost',user='root',password='',database='practice2')-database name
+
+step5=pd.read_sql_query("select * from update_toy_data",conn)-table name
+######################################################################################################################################
+
+8)What does group by in pandas ? 
+n Pandas, the groupby function is used to split a DataFrame into groups based on some criteria
+ and then apply a function to each group independently. This process is often referred to as "split-apply-combine." 
+The groupby operation allows you to perform operations on subsets of data defined by a grouping criterion.
+
+example
+data = {'Category': ['A', 'B', 'A', 'd', 'B', 'f'],
+        'Value': [10, 20, 15, 25, 12, 18]}
+df = pd.DataFrame(data)
+
+ Group by the 'Category' column
+grouped = df.groupby('Category')
+grouped
+mean_values = grouped.mean()
+
+print(mean_values)
+#######################################################################################################################################
+9)difference between CrossTab vs Pivot table ? 
+
+a)crosstab()
+The pd.crosstab() function is specifically designed for cross-tabulation, which is a way of summarizing 
+and aggregating data by computing a cross-tabulation table. 
+It is mainly used for computing a simple cross-tabulation of two (or more) factors.
+
+-pd.crosstab() is specifically designed for creating cross-tabulation tables, summarizing the counts of occurrences 
+for different categories.
+-pd.crosstab() is generally used for counting occurrences, and you can provide additional columns for computing frequencies.
+-pd.crosstab() is simpler and more focused on cross-tabulation
+example
+
+import pandas as pd
+
+df = pd.DataFrame({'Category': ['A', 'B', 'A', 'B', 'A', 'B'],
+                   'Value': [10, 20, 15, 25, 12, 18]})
+
+cross_tab = pd.crosstab(df['Category'], columns='count')
+
+print(cross_tab)
+op=col_0     count
+Category       
+A             3
+B             3
+
+
+b)pivot_table()
+The pd.pivot_table() function is a more general tool for reshaping and aggregating data.
+ It allows you to create a pivot table based on one or more columns,
+ specifying  how to aggregate the values for each combination of factors.
+
+-pd.pivot_table() is a more general tool for creating pivot tables, allowing for more 
+flexibility in terms of specifying aggregation functions and handling missing values.
+-pd.pivot_table() provides more flexibility in terms of the aggregation function. 
+You can compute means, sums, counts, or apply custom aggregation functions.
+-pd.pivot_table() is more flexible and can handle more complex 
+
+example
+import pandas as pd
+df = pd.DataFrame({'Category': ['A', 'B', 'A', 'B', 'A', 'B'],
+                   'Value': [10, 20, 15, 25, 12, 18]})
+
+# Pivot table
+pivot_table = pd.pivot_table(df, values='Value', index='Category', aggfunc='mean')
+
+print(pivot_table)
+op=          Value
+Category       
+A            12.333333
+B            21.000000
+######################################################################################################################
+
+10)In  which scenerio what kind of plot you will use ? Numerical ==? , Categorical ==? 
+
+Numerical Data:
+
+a)Histogram:
+-Use histograms to visualize the distribution of a single numerical variable.
+-Helpful for understanding the central tendency, spread, and shape of the data.
+b)Box Plot (Box Plot):
+-Box plots are useful for visualizing the distribution of numerical data and identifying outliers.
+-Particularly helpful for comparing distributions or identifying skewness.
+c)Scatter Plot:
+-Use scatter plots to explore the relationship between two numerical variables.
+-Helpful for identifying patterns, trends, or correlations in the data.
+d)Line Plot:
+-Line plots are suitable for visualizing trends over a continuous variable (e.g., time series data).
+-Helpful for showing the progression of numerical values over a continuous scale.
+
+Categorical Data:
+a)Bar Plot:
+-Bar plots are effective for visualizing the distribution of categorical variables or comparing counts across categories.
+-Use when you have discrete categories and want to show the frequency or proportion of each category.
+b)Pie Chart:
+-Pie charts are suitable for showing the composition of parts within a whole.
+-Use when you have a small number of categories and want to represent the relative proportions.
+c)Count Plot:
+-Count plots are similar to bar plots but specifically designed for counting the number of occurrences of each category in categorical variable.
+-Useful when you want a simple count of occurrences.
+d)Box Plot (Categorical):
+-Box plots can also be used with one categorical variable (on the x-axis) and one numerical variable (on the y-axis).
+-Helpful for comparing the distribution of numerical values across different categories.
+
+######################################################################################################################################
+
+11)What does TimeDelta in Pandas ?
+In Pandas, Timedelta represents the duration or the difference between two dates or times. 
+It is a part of the Pandas library and is used to perform time-based arithmetic. 
+Timedelta is particularly useful when you need to work with time intervals, durations, or differences between dates and times.
+
+example=
+1)you can create a Timedelta object by subtracting one date or time from another.
+import pandas as pd
+
+# Create a Timedelta representing a duration of 3 days
+delta = pd.Timedelta(days=3)
+2)Performing Arithmetic Operations:
+Timedelta can be used to perform arithmetic operations on dates 
+3)Timedelta is often used in the context of time series data when you need to calculate differences between consecutive dates or times.
+############################################################################################################################################
+12)How can you extract day , month , year in a date column using pandas ? 
+ANS=
+
+step 1=read the csv file that include a Date column
+df=pd.reqad_csv("file path")
+step2= find date column
+step3= check column in date format
+df.info()
+step4=if there is no data type as date so need to change it 
+df['Date']=pd.to-datetime(df["Date"])
+df['Date']
+now its cahnge object to date 
+step5
+extract year,month,day 
+df["Date"].dt.Year
+df["Date"].dt.month
+df["Date"].dt.day
+step6
+write in one column
+df["Year"]=df["Date"].dt.year
+df["month"]=df["Date"].dt.month
+df["day"]=df["Date"].dt.day
+df
+#############################################################################################################################
+13)How can you extract hours , minutes , seconds in a datetime column ? 
+
+step 1=read the csv file that include a Date column
+df=pd.reqad_csv("file path")
+step2= find date column
+step3= check column in date format
+df.info()
+step4=if there is no data type as date so need to change it 
+df['Date']=pd.to-datetime(df["Date"])
+df['Date']
+now its cahnge object to date 
+step5
+extract year,month,day 
+df["Date"].dt.minute
+df["Date"].dt.hour
+df["Date"].dt.second
+step6
+write in one column
+df["Minute"]=df["Date"].dt.minute
+df["hour"]=df["Date"].dt.hour
+df["second"]=df["Date"].dt.second
+df
+#####################################################################################################################################
+14)How do you read a excel file , csv file and json file in jupyter notebook using pandas ? 
+
+A)Reading CSV File::
+
+df = pd.read_csv(csv_file_path)
+
+B)Reading Excel File:
+
+df = pd.read_excel(excel_file_path)
+
+C)Reading JSON File:
+df = pd.read_json(json_file_path)
+
+#######################################################################################################################################
+
+15)How can you create  excel data from a dataframe using pandas ? 
+
+ANS=We can use the to_excel method in Pandas to create an Excel file from a DataFrame.
+
+example=
+data = {'Name': ['John', 'Jane', 'Bob'],
+        'Age': [25, 30, 22],
+        'City': ['New York', 'San Francisco', 'Los Angeles']}
+df = pd.DataFrame(data)
+
+df.to_excel(excel_file_path, index=False)
+#######################################################################################################################################
+
+
+
+
+
+
